@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      registrations: {
+        Row: {
+          created_at: string | null
+          email: string
+          experience_level: string
+          full_name: string
+          id: string
+          luma_registered: boolean | null
+          payment_reference: string | null
+          payment_status: string | null
+          phone_number: string
+          team_name: string | null
+          team_size: number | null
+          university: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          experience_level: string
+          full_name: string
+          id?: string
+          luma_registered?: boolean | null
+          payment_reference?: string | null
+          payment_status?: string | null
+          phone_number: string
+          team_name?: string | null
+          team_size?: number | null
+          university: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          experience_level?: string
+          full_name?: string
+          id?: string
+          luma_registered?: boolean | null
+          payment_reference?: string | null
+          payment_status?: string | null
+          phone_number?: string
+          team_name?: string | null
+          team_size?: number | null
+          university?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
