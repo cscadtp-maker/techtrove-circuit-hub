@@ -14,6 +14,56 @@ export type Database = {
   }
   public: {
     Tables: {
+      projects: {
+        Row: {
+          demo_url: string | null
+          github_url: string
+          id: string
+          problem_statement: string | null
+          project_description: string
+          project_title: string
+          registration_id: string | null
+          submitted_at: string
+          team_name: string
+          tech_stack: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          demo_url?: string | null
+          github_url: string
+          id?: string
+          problem_statement?: string | null
+          project_description: string
+          project_title: string
+          registration_id?: string | null
+          submitted_at?: string
+          team_name: string
+          tech_stack?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          demo_url?: string | null
+          github_url?: string
+          id?: string
+          problem_statement?: string | null
+          project_description?: string
+          project_title?: string
+          registration_id?: string | null
+          submitted_at?: string
+          team_name?: string
+          tech_stack?: string[] | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "projects_registration_id_fkey"
+            columns: ["registration_id"]
+            isOneToOne: false
+            referencedRelation: "registrations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       registrations: {
         Row: {
           created_at: string | null
