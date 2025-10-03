@@ -6,11 +6,14 @@ import WhoShouldJoin from "@/components/WhoShouldJoin";
 import Prizes from "@/components/Prizes";
 import Rules from "@/components/Rules";
 import Registration from "@/components/Registration";
+import ProjectSubmission from "@/components/ProjectSubmission";
 import Footer from "@/components/Footer";
+import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <AnimatedShaderBackground />
       <Hero />
       <EventOverview />
       <Schedule />
@@ -19,6 +22,7 @@ const Index = () => {
       <Prizes />
       <Rules />
       <Registration />
+      <ProjectSubmission />
       <Footer />
     </div>
   );

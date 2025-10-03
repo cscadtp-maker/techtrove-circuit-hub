@@ -14,14 +14,13 @@ const PaymentStep = ({ paymentReference, onComplete }: PaymentStepProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   
-  // Payment details - Update these with your actual payment info
+  // Payment details
   const paymentDetails = {
     amount: "RM 10.00",
-    // This would be your actual payment URL/info
-    paymentUrl: `techtrove2025://pay/${paymentReference}`,
-    accountNumber: "1234567890", // Replace with actual account
+    paymentUrl: `https://techtrove2025.com/pay/${paymentReference}`,
+    accountNumber: "1234567890",
     accountName: "Cyber Circuit Club ADP",
-    bankName: "Example Bank"
+    bankName: "Maybank"
   };
 
   const copyReference = () => {

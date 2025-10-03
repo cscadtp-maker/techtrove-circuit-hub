@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import boltLogo from "@/assets/bolt-logo.png";
 
@@ -6,6 +7,13 @@ const Hero = () => {
   const scrollToRegistration = () => {
     document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const stats = [
+    { value: "24h", label: "Hacking Time" },
+    { value: "RM3K+", label: "Prize Pool" },
+    { value: "2 Days", label: "Event Duration" },
+    { value: "4 Max", label: "Team Size" }
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
@@ -83,6 +91,23 @@ const Hero = () => {
           >
             Learn More
           </Button>
+        </div>
+
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.7s" }}>
+          {stats.map((stat, index) => (
+            <Card 
+              key={index} 
+              className="card-gradient p-6 text-center hover:scale-110 transition-all duration-300 hover:glow-effect cursor-pointer animate-float"
+              style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+            >
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2 animate-pulse-glow">
+                {stat.value}
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {stat.label}
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
