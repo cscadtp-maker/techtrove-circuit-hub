@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, Clock, MapPin } from "lucide-react";
-import boltLogo from "@/assets/bolt-logo.png";
 
 const Hero = () => {
   const scrollToRegistration = () => {
@@ -25,13 +24,16 @@ const Hero = () => {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        {/* Club Logo with Bolt Collaboration */}
+        {/* Club Logo */}
         <div className="mb-8 flex justify-center animate-fade-in">
-          <div className="px-6 py-3 card-gradient rounded-full border border-primary/30 hover:scale-105 transition-transform duration-300">
-            <p className="text-sm font-semibold gradient-text flex items-center gap-2">
-              Cyber Circuit Club ADP <span className="text-muted-foreground">×</span> 
-              <img src={boltLogo} alt="Bolt" className="h-5 inline-block" />
-            </p>
+          <div className="flex items-center gap-4 px-6 py-3 card-gradient rounded-full border border-primary/30 hover:scale-105 transition-transform duration-300">
+            <img src="/ccc-logo.png" alt="Cyber Circuit Club" className="h-10 w-10 rounded-full border border-primary/40 shadow-md" />
+            <span className="text-muted-foreground text-lg">×</span>
+            <img src="/bolt-logo.png" alt="bolt.new" className="h-6 w-auto drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+            <div className="text-left">
+              <p className="text-sm font-semibold gradient-text">Cyber Circuit Club ADP × bolt.new</p>
+              <p className="text-xs text-muted-foreground">Official TechTrove 2.0 Hackathon Collaboration</p>
+            </div>
           </div>
         </div>
         

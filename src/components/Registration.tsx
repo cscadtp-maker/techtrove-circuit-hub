@@ -23,20 +23,20 @@ const Registration = () => {
     <section id="registration" className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         {/* Progress Indicator */}
-        <div className="mb-12 max-w-3xl mx-auto">
-          <div className="flex items-center justify-between">
-            {["Details", "Payment", "Luma"].map((label, index) => {
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-6">
+            {["Details", "Payment", "Luma"].map((label, index, array) => {
               const stepValue = index === 0 ? "form" : index === 1 ? "payment" : "luma";
               const isActive = step === stepValue;
-              const isCompleted = 
+              const isCompleted =
                 (step === "payment" && index === 0) ||
                 (step === "luma" && index <= 1);
 
               return (
-                <div key={label} className="flex items-center flex-1">
-                  <div className="flex flex-col items-center flex-1">
+                <div key={label} className="flex items-center gap-6">
+                  <div className="flex flex-col items-center">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                      className={`w-11 h-11 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
                         isCompleted
                           ? "bg-accent text-accent-foreground scale-110"
                           : isActive
@@ -54,10 +54,13 @@ const Registration = () => {
                       {label}
                     </p>
                   </div>
-                  {index < 2 && (
+
+                  {index < array.length - 1 && (
                     <div
-                      className={`flex-1 h-1 mx-2 transition-all duration-300 ${
-                        isCompleted ? "bg-accent" : "bg-muted"
+                      className={`w-20 h-0.5 rounded-full transition-all duration-300 ${
+                        (step === "payment" && index === 0) || step === "luma"
+                          ? "bg-accent"
+                          : "bg-muted"
                       }`}
                     />
                   )}
@@ -70,10 +73,7 @@ const Registration = () => {
         {/* Step Content */}
         {step === "form" && <RegistrationForm onSuccess={handleFormSuccess} />}
         {step === "payment" && registrationData && (
-          <PaymentStep
-            paymentReference={registrationData.paymentRef}
-            onComplete={handlePaymentComplete}
-          />
+          <PaymentStep onComplete={handlePaymentComplete} />
         )}
         {step === "luma" && <LumaIntegration />}
       </div>
